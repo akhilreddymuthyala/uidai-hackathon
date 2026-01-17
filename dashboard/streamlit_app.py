@@ -819,10 +819,7 @@ ENHANCED_CSS = """
     </style>
 """
 
-# To use this CSS in your Streamlit app:
-# st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
-# To use this CSS in your Streamlit app:
-# st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
+
 
 # To use this CSS in your Streamlit app:
 st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
