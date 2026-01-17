@@ -502,8 +502,8 @@ def render_hero_section():
     """Render animated hero header section"""
     st.markdown("""
         <div class="hero-container">
-            <div class="hero-title">🇮🇳 Aadhaar Enrollment Analytics Dashboard</div>
-            <div class="hero-subtitle">Age-Wise Coverage Analysis & Intervention Planning</div>
+            <div class="hero-title">Aadhaar Enrollment Analytics Dashboard</div>
+            <div class="hero-subtitle">AGE-WISE AADHAAR ENROLLMENT IMBALANCE ANALYSIS FOR INCLUSIVE IDENTITY COVERAGE</div>
             <div class="hero-tagline">UIDAI Data Hackathon 2026 | Empowering Inclusive Identity</div>
         </div>
     """, unsafe_allow_html=True)
