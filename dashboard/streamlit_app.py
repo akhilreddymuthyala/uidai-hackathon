@@ -61,67 +61,232 @@ SUCCESS_COLOR = '#27ae60'
 WARNING_COLOR = '#f39c12'
 DANGER_COLOR = '#e74c3c'
 
-# ============================================================================
-# ENHANCED CSS WITH ANIMATIONS
-# ============================================================================
+"""
+ENHANCED CSS FOR UIDAI ENROLLMENT ANALYTICS DASHBOARD
+Government-grade professional styling with perfect readability
+"""
 
-st.markdown("""
+ENHANCED_CSS = """
     <style>
-    /* ===== GLOBAL STYLES ===== */
+    /* ========================================================================
+       THEME LOCK & GLOBAL OVERRIDES
+       ======================================================================== */
+    
+    /* Force white background theme regardless of system settings */
+    .stApp {
+        background-color: #ffffff !important;
+    }
+    
     .main {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
     }
     
     .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
+        max-width: 1400px !important;
     }
     
-    /* ===== HERO HEADER SECTION ===== */
+    /* Force dark text on light backgrounds */
+    .stApp, .main, p, li, span, div {
+        color: #2c3e50 !important;
+    }
+    
+    /* ========================================================================
+       TYPOGRAPHY SYSTEM - Clear Hierarchy
+       ======================================================================== */
+    
+    /* Hero Section Typography */
     .hero-container {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 3rem 2rem;
-        border-radius: 20px;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
         animation: fadeInDown 0.8s ease-out;
     }
     
     .hero-title {
-        font-size: 3.2rem;
-        font-weight: 800;
-        color: #ffffff;
-        margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        letter-spacing: -1px;
+        font-size: 2.8rem !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        margin-bottom: 0.75rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        letter-spacing: -0.5px;
+        line-height: 1.2;
     }
     
     .hero-subtitle {
-        font-size: 1.4rem;
-        color: #e8eaf6;
-        margin-bottom: 0.5rem;
-        font-weight: 300;
+        font-size: 1.2rem !important;
+        color: #dbeafe !important;
+        margin-bottom: 0.5rem !important;
+        font-weight: 400 !important;
+        line-height: 1.3;
     }
     
     .hero-tagline {
-        font-size: 1rem;
-        color: #b39ddb;
+        font-size: 0.95rem !important;
+        color: #93c5fd !important;
         font-style: italic;
-        margin-top: 1rem;
+        margin-top: 0.75rem !important;
     }
     
-    /* ===== ANIMATED METRIC CARDS ===== */
+    /* Section Headers - Clear Visual Hierarchy */
+    .section-header {
+        font-size: 1.75rem !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        margin: 2rem 0 1.25rem 0 !important;
+        padding-bottom: 0.5rem !important;
+        border-bottom: 3px solid #3b82f6 !important;
+        animation: fadeIn 0.8s ease-out;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Body Text - Readable Size */
+    p, li, span, div {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #334155 !important;
+    }
+    
+    /* ========================================================================
+       SIDEBAR STYLING - Dark Background with White Text
+       ======================================================================== */
+    
+    /* Sidebar container */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1e293b 0%, #334155 100%) !important;
+        padding-top: 2rem;
+    }
+    
+    /* All sidebar text - white by default */
+    [data-testid="stSidebar"] * {
+        color: #ffffff !important;
+    }
+    
+    /* Sidebar headings */
+    [data-testid="stSidebar"] h3 {
+        font-size: 1.4rem !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Sidebar paragraphs */
+    [data-testid="stSidebar"] p {
+        font-size: 1rem !important;
+        color: #e2e8f0 !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* ========================================================================
+       SIDEBAR INPUT FIELDS - BLACK TEXT FIX
+       ======================================================================== */
+    
+    /* Sidebar selectbox - force dark text */
+    [data-testid="stSidebar"] .stSelectbox label {
+        color: #ffffff !important;
+    }
+    
+    /* Sidebar selectbox input/display */
+    [data-testid="stSidebar"] .stSelectbox > div > div,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div,
+    [data-testid="stSidebar"] .stSelectbox input {
+        background-color: #ffffff !important;
+        color: #1e293b !important;
+        border: 1px solid #cbd5e1 !important;
+    }
+    
+    /* Sidebar selectbox selected value and placeholder */
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] span,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] div,
+    [data-testid="stSidebar"] .stSelectbox svg + div {
+        color: #1e293b !important;
+    }
+    
+    /* Force all text in selectbox to be dark */
+    [data-testid="stSidebar"] [data-baseweb="select"] * {
+        color: #1e293b !important;
+    }
+    
+    /* Dropdown menu background */
+    [data-testid="stSidebar"] [role="listbox"] {
+        background-color: #ffffff !important;
+    }
+    
+    /* Dropdown menu options */
+    [data-testid="stSidebar"] [role="option"] {
+        color: #1e293b !important;
+        background-color: #ffffff !important;
+    }
+    
+    [data-testid="stSidebar"] [role="option"]:hover {
+        background-color: #f1f5f9 !important;
+        color: #1e293b !important;
+    }
+    
+    /* ========================================================================
+       SIDEBAR EXPANDERS - Critical Fix for Visibility
+       ======================================================================== */
+    
+    /* Expander summary (clickable header) */
+    [data-testid="stSidebar"] div[data-testid="stExpander"] summary {
+        background-color: rgba(59, 130, 246, 0.15) !important;
+        color: #ffffff !important;
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        border-left: 4px solid #3b82f6 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Expander summary hover effect */
+    [data-testid="stSidebar"] div[data-testid="stExpander"] summary:hover {
+        background-color: rgba(59, 130, 246, 0.25) !important;
+    }
+    
+    /* Expander body content */
+    [data-testid="stSidebar"] div[data-testid="stExpander"] .streamlit-expanderContent {
+        background-color: rgba(15, 23, 42, 0.3) !important;
+        padding: 1rem !important;
+        border-radius: 0 0 8px 8px !important;
+        border-left: 4px solid #3b82f6 !important;
+    }
+    
+    /* Expander body text */
+    [data-testid="stSidebar"] div[data-testid="stExpander"] p,
+    [data-testid="stSidebar"] div[data-testid="stExpander"] li,
+    [data-testid="stSidebar"] div[data-testid="stExpander"] span {
+        color: #f1f5f9 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
+    }
+    
+    /* Expander strong/bold text */
+    [data-testid="stSidebar"] div[data-testid="stExpander"] strong,
+    [data-testid="stSidebar"] div[data-testid="stExpander"] b {
+        color: #bfdbfe !important;
+        font-weight: 700 !important;
+    }
+    
+    /* ========================================================================
+       METRIC CARDS - Professional & Animated
+       ======================================================================== */
+    
     .metric-card {
-        background: linear-gradient(145deg, #ffffff, #f0f0f0);
-        border-radius: 15px;
-        padding: 1.5rem;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
+        border-radius: 12px;
+        padding: 1.5rem 1.25rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid #e2e8f0;
         position: relative;
         overflow: hidden;
         animation: slideUp 0.6s ease-out;
+        min-height: 160px;
     }
     
     .metric-card::before {
@@ -131,13 +296,14 @@ st.markdown("""
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
         transition: left 0.5s;
     }
     
     .metric-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-color: #3b82f6;
     }
     
     .metric-card:hover::before {
@@ -145,117 +311,148 @@ st.markdown("""
     }
     
     .metric-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.5rem !important;
+        margin-bottom: 0.5rem !important;
         display: block;
+        opacity: 0.9;
     }
     
     .metric-value {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin: 0.5rem 0;
-        font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+        font-size: 1.75rem !important;
+        font-weight: 800 !important;
+        color: #1e293b !important;
+        margin: 0.5rem 0 !important;
+        font-family: 'SF Mono', 'Monaco', 'Courier New', monospace !important;
+        letter-spacing: -0.5px;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        line-height: 1.2 !important;
     }
     
     .metric-label {
-        font-size: 0.95rem;
-        color: #7f8c8d;
+        font-size: 0.8rem !important;
+        color: #64748b !important;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
+        letter-spacing: 0.8px;
+        font-weight: 600 !important;
+        margin-top: 0.5rem !important;
+        line-height: 1.3 !important;
+        word-break: break-word !important;
     }
     
     .metric-delta {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem !important;
+        margin-top: 0.5rem !important;
+        padding: 0.35rem 0.85rem !important;
         border-radius: 20px;
         display: inline-block;
+        font-weight: 600 !important;
     }
     
     .metric-delta.positive {
-        background-color: #d4edda;
-        color: #155724;
+        background-color: #d1fae5 !important;
+        color: #065f46 !important;
     }
     
     .metric-delta.negative {
-        background-color: #f8d7da;
-        color: #721c24;
+        background-color: #fee2e2 !important;
+        color: #991b1b !important;
     }
     
-    /* ===== SECTION HEADERS ===== */
-    .section-header {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin: 2rem 0 1rem 0;
-        padding-bottom: 0.5rem;
-        border-bottom: 3px solid #3498db;
-        animation: fadeIn 0.8s ease-out;
-    }
+    /* ========================================================================
+       INSIGHT & RECOMMENDATION BOXES
+       ======================================================================== */
     
-    /* ===== INSIGHT & RECOMMENDATION BOXES ===== */
     .insight-box {
-        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-        border-left: 5px solid #2196f3;
-        padding: 1.5rem;
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border-left: 5px solid #3b82f6;
+        padding: 1.25rem;
         margin: 1.5rem 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         animation: slideInLeft 0.6s ease-out;
         transition: all 0.3s ease;
     }
     
     .insight-box:hover {
         transform: translateX(5px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
+    }
+    
+    .insight-box b {
+        color: #1e3a8a !important;
+        font-size: 1rem !important;
+    }
+    
+    .insight-box p {
+        color: #1e293b !important;
+        margin: 0.5rem 0 !important;
+        font-size: 0.95rem !important;
     }
     
     .recommendation-box {
-        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-        border-left: 5px solid #4caf50;
-        padding: 1.5rem;
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        border-left: 5px solid #10b981;
+        padding: 1.25rem;
         margin: 1.5rem 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
         animation: slideInRight 0.6s ease-out;
         transition: all 0.3s ease;
     }
     
     .recommendation-box:hover {
         transform: translateX(-5px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
     }
     
     .recommendation-box h4 {
-        color: #2e7d32;
-        margin-top: 0;
-        font-size: 1.3rem;
+        color: #065f46 !important;
+        margin-top: 0 !important;
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
     }
     
-    /* ===== ACTION CARDS ===== */
+    .recommendation-box b {
+        color: #047857 !important;
+        font-size: 1rem !important;
+    }
+    
+    .recommendation-box p {
+        color: #1e293b !important;
+        margin: 0.5rem 0 !important;
+        font-size: 0.95rem !important;
+    }
+    
+    /* ========================================================================
+       ACTION CARDS
+       ======================================================================== */
+    
     .action-card {
-        background: white;
+        background: #ffffff;
         border-radius: 12px;
         padding: 1.5rem;
-        margin: 1rem 0;
+        margin: 1.25rem 0;
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         transition: all 0.3s ease;
         border-top: 4px solid;
         animation: fadeInUp 0.5s ease-out;
     }
     
-    .action-card.urgent {
-        border-top-color: #e74c3c;
+    .action-card.tier1 {
+        border-top-color: #dc2626;
+        background: linear-gradient(135deg, #ffffff 0%, #fee2e2 100%);
     }
     
-    .action-card.moderate {
-        border-top-color: #f39c12;
+    .action-card.tier2 {
+        border-top-color: #f59e0b;
+        background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
     }
     
-    .action-card.low {
-        border-top-color: #27ae60;
+    .action-card.tier3 {
+        border-top-color: #10b981;
+        background: linear-gradient(135deg, #ffffff 0%, #d1fae5 100%);
     }
     
     .action-card:hover {
@@ -270,49 +467,193 @@ st.markdown("""
     }
     
     .action-card-icon {
-        font-size: 2rem;
+        font-size: 2rem !important;
         margin-right: 1rem;
     }
     
     .action-card-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #2c3e50;
+        font-size: 1.3rem !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
     }
     
     .priority-badge {
         display: inline-block;
-        padding: 0.3rem 0.8rem;
+        padding: 0.4rem 1rem;
         border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
         text-transform: uppercase;
         margin-left: auto;
+        letter-spacing: 0.5px;
     }
     
     .priority-badge.tier1 {
-        background-color: #e74c3c;
-        color: white;
+        background-color: #dc2626;
+        color: white !important;
     }
     
     .priority-badge.tier2 {
-        background-color: #f39c12;
-        color: white;
+        background-color: #f59e0b;
+        color: white !important;
     }
     
     .priority-badge.tier3 {
-        background-color: #27ae60;
-        color: white;
+        background-color: #10b981;
+        color: white !important;
     }
     
-    /* ===== ANIMATIONS ===== */
+    /* ========================================================================
+       TABS STYLING
+       ======================================================================== */
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background-color: #f8fafc;
+        padding: 0.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin-bottom: 1.5rem;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        height: 48px;
+        border-radius: 8px;
+        padding: 0 1.75rem;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        transition: all 0.3s ease;
+        color: #64748b !important;
+        background-color: transparent;
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #e2e8f0;
+        color: #1e293b !important;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* ========================================================================
+       STREAMLIT NATIVE COMPONENTS OVERRIDE
+       ======================================================================== */
+    
+    /* Info/Warning/Error boxes */
+    .stAlert {
+        border-radius: 10px !important;
+        padding: 1.25rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Dataframes */
+    .dataframe {
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .dataframe thead th {
+        background-color: #1e293b !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .dataframe tbody td {
+        padding: 0.75rem !important;
+        color: #334155 !important;
+    }
+    
+    /* Download button */
+    .stDownloadButton > button {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 25px !important;
+        padding: 0.75rem 2.5rem !important;
+        font-weight: 600 !important;
+        font-size: 1.05rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+    }
+    
+    .stDownloadButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4) !important;
+    }
+    
+    /* Selectbox and inputs - BLACK TEXT */
+    .stSelectbox > div > div {
+        background-color: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        font-size: 1rem !important;
+        color: #1e293b !important;
+    }
+    
+    /* Force ALL text inside selectbox to be dark */
+    .stSelectbox * {
+        color: #1e293b !important;
+    }
+    
+    /* Selectbox dropdown options - BLACK TEXT */
+    .stSelectbox div[data-baseweb="select"] > div {
+        color: #1e293b !important;
+    }
+    
+    /* Selectbox selected value - BLACK TEXT */
+    .stSelectbox [data-baseweb="select"] span {
+        color: #1e293b !important;
+    }
+    
+    /* Value container text */
+    .stSelectbox [data-baseweb="select"] [data-baseweb="input"] {
+        color: #1e293b !important;
+    }
+    
+    /* All input fields - BLACK TEXT */
+    input, select, textarea {
+        color: #1e293b !important;
+        background-color: #ffffff !important;
+    }
+    
+    /* Dropdown menu items */
+    [role="option"] {
+        color: #1e293b !important;
+        background-color: #ffffff !important;
+    }
+    
+    [role="option"]:hover {
+        background-color: #f1f5f9 !important;
+    }
+    
+    /* PLACEHOLDER TEXT - DARK GRAY */
+    input::placeholder,
+    textarea::placeholder {
+        color: #475569 !important;
+        opacity: 1 !important;
+    }
+    
+    /* Selectbox placeholder - more aggressive */
+    [data-baseweb="select"] [aria-selected="false"],
+    [data-baseweb="select"] [class*="placeholder"] {
+        color: #475569 !important;
+        opacity: 1 !important;
+    }
+    
+    /* ========================================================================
+       ANIMATIONS
+       ======================================================================== */
+    
     @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
     
     @keyframes fadeInDown {
@@ -370,129 +711,121 @@ st.markdown("""
         }
     }
     
-    @keyframes countUp {
-        from {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
+    /* ========================================================================
+       FOOTER
+       ======================================================================== */
     
-    /* ===== TABS STYLING ===== */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background-color: white;
-        padding: 0.5rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        border-radius: 8px;
-        padding: 0 2rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-    }
-    
-    /* ===== SIDEBAR STYLING ===== */
-    .css-1d391kg {
-        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-    }
-    
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-    }
-    
-    [data-testid="stSidebar"] .element-container {
-        color: white;
-    }
-    
-    /* ===== SIDEBAR EXPANDER TEXT FIX ===== */
-
-    /* Expander header (title) */
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] summary {
-        color: #ffffff !important;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    /* Expander body text */
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] p,
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] li {
-        color: #ffffff !important;
-        font-size: 15.5px;
-        line-height: 1.6;
-    }
-    
-    /* ===== LOADING SPINNER ===== */
-    .stSpinner > div {
-        border-top-color: #667eea !important;
-    }
-    
-    /* ===== DATA TABLES ===== */
-    .dataframe {
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    
-    /* ===== DOWNLOAD BUTTON ===== */
-    .stDownloadButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 0.6rem 2rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
-    
-    .stDownloadButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
-    }
-    
-    /* ===== FOOTER ===== */
     .footer {
         text-align: center;
-        padding: 2rem;
+        padding: 2.5rem 2rem;
         margin-top: 3rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 15px;
-        color: white;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        border-radius: 16px;
+        color: white !important;
         animation: fadeIn 1s ease-out;
+        box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    }
+    
+    .footer * {
+        color: white !important;
     }
     
     .footer-logo {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 2rem !important;
+        margin-bottom: 0.75rem !important;
     }
     
-    /* ===== RESPONSIVE DESIGN ===== */
+    .footer h3 {
+        font-size: 1.5rem !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    .footer p {
+        color: #dbeafe !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* ========================================================================
+       RESPONSIVE DESIGN
+       ======================================================================== */
+    
     @media (max-width: 768px) {
         .hero-title {
-            font-size: 2rem;
+            font-size: 1.8rem !important;
         }
         
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 1rem !important;
+        }
+        
+        .section-header {
+            font-size: 1.5rem !important;
         }
         
         .metric-card {
             margin-bottom: 1rem;
+            min-height: 140px;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem !important;
         }
     }
+    
+    /* ========================================================================
+       DIVIDER STYLING
+       ======================================================================== */
+    
+    hr {
+        border: none !important;
+        border-top: 2px solid #e2e8f0 !important;
+        margin: 2.5rem 0 !important;
+    }
+    
+    /* ========================================================================
+       SPINNER/LOADING
+       ======================================================================== */
+    
+    .stSpinner > div {
+        border-top-color: #3b82f6 !important;
+    }
+    
+    /* ========================================================================
+       FIX OVERLAPPING ISSUES
+       ======================================================================== */
+    
+    /* Ensure proper spacing between sections */
+    .element-container {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Fix column gaps */
+    [data-testid="column"] {
+        padding: 0 0.75rem !important;
+    }
+    
+    /* Prevent text overflow */
+    * {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
     </style>
-""", unsafe_allow_html=True)
+"""
+
+# To use this CSS in your Streamlit app:
+# st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
+# To use this CSS in your Streamlit app:
+# st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
+
+# To use this CSS in your Streamlit app:
+st.markdown(ENHANCED_CSS, unsafe_allow_html=True)
 
 # ============================================================================
 # HELPER FUNCTIONS - UI COMPONENTS
@@ -502,7 +835,7 @@ def render_hero_section():
     """Render animated hero header section"""
     st.markdown("""
         <div class="hero-container">
-            <div class="hero-title">Aadhaar Enrollment Analytics Dashboard</div>
+            <div class="hero-title"> Aadhaar Enrollment Analytics Dashboard</div>
             <div class="hero-subtitle">AGE-WISE AADHAAR ENROLLMENT IMBALANCE ANALYSIS FOR INCLUSIVE IDENTITY COVERAGE</div>
             <div class="hero-tagline">UIDAI Data Hackathon 2026 | Empowering Inclusive Identity</div>
         </div>
