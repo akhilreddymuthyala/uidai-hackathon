@@ -254,6 +254,7 @@ class DataPreprocessor:
             df["month"] = df["date"].dt.month
             df["month_name"] = df["date"].dt.strftime("%B")
             df["year_month"] = df["date"].dt.to_period("M").astype(str)
+            df["state"] = "Telangana"
             print(f"  Added date-related columns (year, month, month_name, year_month)")
 
         return df
