@@ -838,18 +838,18 @@ def render_logo():
         return None
 
 
-
 def render_hero_section():
     """Render animated hero header section with integrated logo"""
     logo_src = render_logo()
-    
+
     # Determine logo HTML based on whether file exists
     if logo_src:
         logo_html = f'<img src="{logo_src}" alt="Aadhaar Analytics" class="hero-logo">'
     else:
         logo_html = '<div class="hero-logo-emoji">🇮🇳</div>'
-    
-    st.markdown(f"""
+
+    st.markdown(
+        f"""
         <style>
         .hero-container {{
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -958,7 +958,9 @@ def render_hero_section():
                 <div class="hero-tagline">UIDAI Data Hackathon 2026 | Empowering Inclusive Identity</div>
             </div>
         </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_metric_card(
@@ -2126,6 +2128,9 @@ def main():
         </div>
         <p style="font-size: 0.8rem; margin-top: 1.5rem; color: #9575cd;">
             Built with Streamlit • Python • Plotly
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 1.5rem; color: #9575cd;">
+            Team - Tech4Bharath
         </p>
     </div>
     """,
